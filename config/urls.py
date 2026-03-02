@@ -4,9 +4,11 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/token/', TokenObtainPairView.as_view()),
     path('api/token/refresh/', TokenRefreshView.as_view()),
-    path('api/', include('books.urls')),   
-    path('api/', include('orders.urls')), 
-    path('api/', include('users.urls')),  
+    path('api/user/v1/login/', TokenObtainPairView.as_view()),
+    path('api/books', include('books.urls')), 
+    path('api/authors', include('authors.urls')),
+    path('api/orders', include('orders.urls')), 
+    path('api/users', include('users.urls')),
+    path('api/cart', include('cart.urls')), 
 ]
